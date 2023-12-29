@@ -5,17 +5,23 @@ const rootDir = dirname(__dirname);
 
 function updateHijriDate() {
     const currentDate = new Date();
-    const hijriFormatter = new Intl.DateTimeFormat('en-US-u-ca-islamic', {
+
+    const hijriFormatter = new Intl.DateTimeFormat('ar-SA', {
         day: 'numeric',
         month: 'numeric',
         year: 'numeric',
-    });
-    const hijriDate = hijriFormatter.format(currentDate);
-    const [month, day, year] = hijriDate.split('/');
-    const formattedDate = `${day}/${month}/${year}`.replace(' AH', '');
+    }).formatToParts(currentDate);
 
-    writeFileSync(`${rootDir}/glazewm-hijri-date/hijri-date.txt`, formattedDate);
+    const day = hijriFormatter.find((part) => part.type === 'day').value;
+    const month = hijriFormatter.find((part) => part.type === 'month').value;
+    const year = hijriFormatter.find((part) => part.type === 'year').value;
+
+    const monthName = new Intl.DateTimeFormat('ar-SA', { month: 'long' }).format(currentDate);
+    const hijriDateWithMonthName = `${day}/${monthName} (${month})/${year}`;
+
+    const filePath = `${rootDir}/glazewm-hijri-date/hijri-date.txt`;
+    writeFileSync(filePath, hijriDateWithMonthName);
 }
 
 updateHijriDate();
-setInterval(updateHijriDate, 10000);
+setInterval(updateHijriDate, 10000); // Update every 10 seconds

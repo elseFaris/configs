@@ -98,7 +98,7 @@ bar:
           border_radius: 4
           border_color: *iris
         - type: "text file"
-          file_path: 'G:\Projects\typescript\glazewm-hijri-date\hijri-date.txt'
+          file_path: 'G:\Projects\personal\configs\windows\glazewm\glazewm-hijri-date\hijri-date.txt'
           foreground: *text
           padding: 0 8
           margin: 0 6
@@ -264,7 +264,7 @@ keybindings:
     # that writes the hijri date to a file
     # GlazeWM reads the file and displays it in the bar
     # I just use PM2 to run the script in background.
-    - command: 'exec pm2 start G:\Projects\personal\configs\GlazeWM\glazewm-hijri-date\index.js --name glazewm-hijri-date'
+    - command: 'exec pm2 start G:\Projects\personal\configs\windows\glazewm\glazewm-hijri-date\index.js --name glazewm-hijri-date'
       binding: 'Alt+Shift+H'
 
     # Launch CMD terminal (alternatively `exec wt` or `exec %ProgramFiles%/Git/git-bash.exe`
