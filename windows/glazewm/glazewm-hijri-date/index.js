@@ -1,27 +1,32 @@
-const { writeFileSync, write } = require('fs');
-const { dirname } = require('path');
+const { writeFileSync } = require('fs');
+const { join } = require('path');
 
-const rootDir = dirname(__dirname);
+const filePath = join(__dirname, 'hijri-date.txt');
 
-function updateHijriDate() {
-    const currentDate = new Date();
+const hijriFormatter = new Intl.DateTimeFormat('ar-SA', {
+    day: 'numeric',
+    month: 'numeric',
+    year: 'numeric',
+});
+const monthNameFormatter = new Intl.DateTimeFormat('ar-SA', { month: 'long' });
 
-    const hijriFormatter = new Intl.DateTimeFormat('ar-SA', {
-        day: 'numeric',
-        month: 'numeric',
-        year: 'numeric',
-    }).formatToParts(currentDate);
+function getHijriDate(currentDate) {
+    const parts = hijriFormatter.formatToParts(currentDate);
+    const day = parts.find((part) => part.type === 'day').value;
+    const month = parts.find((part) => part.type === 'month').value;
+    const year = parts.find((part) => part.type === 'year').value;
 
-    const day = hijriFormatter.find((part) => part.type === 'day').value;
-    const month = hijriFormatter.find((part) => part.type === 'month').value;
-    const year = hijriFormatter.find((part) => part.type === 'year').value;
-
-    const monthName = new Intl.DateTimeFormat('ar-SA', { month: 'long' }).format(currentDate);
+    const monthName = monthNameFormatter.format(currentDate, { month: 'long' });
     const hijriDateWithMonthName = `${day}/${monthName} (${month})/${year}`;
 
-    const filePath = `${rootDir}/glazewm-hijri-date/hijri-date.txt`;
-    writeFileSync(filePath, hijriDateWithMonthName);
+    return hijriDateWithMonthName;
 }
 
-updateHijriDate();
-setInterval(updateHijriDate, 10000); // Update every 10 seconds
+function updateHijriDateFile() {
+    const currentDate = new Date();
+    const hijriDate = getHijriDate(currentDate);
+    writeFileSync(filePath, hijriDate);
+}
+
+updateHijriDateFile();
+setInterval(updateHijriDateFile, 1000); // Update every 10 seconds
