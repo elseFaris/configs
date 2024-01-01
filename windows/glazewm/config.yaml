@@ -7,7 +7,7 @@ general:
 
     # Whether to switch back and forth between the previously focused workspace
     # when focusing the current workspace.
-    toggle_workspace_on_refocus: true
+    toggle_workspace_on_refocus: false
 
     # Whether to show floating windows as always on top.
     show_floating_on_top: false
@@ -55,13 +55,20 @@ bar:
     border_radius: '0'
     components_left:
         - type: "window title"
-          label: "<attr ff='Segoe Fluent Icons' fg='#c4a7e7'> </attr>{window_title}"
+          label: "{window_title}"
           foreground: *text
-          margin: 0 6
+          margin: 0 8
           padding: 0 8
           border_width: 0 0 2
           border_radius: 4
           border_color: *iris
+        # - type: "music"
+        #   label_not_playing: "Not Playing 🎵"
+        #   label_paused: "{song_title} - {artist_name}"
+        #   label_playing: "{song_title} - {artist_name} ▶"
+        #   max_title_length: 20
+        #   max_artist_length: 20
+
     components_center:
         - type: "workspaces"
           margin: 0 6
@@ -92,7 +99,7 @@ bar:
           padding: 0 8
           label: "{formatted_time}"
           time_formatting: "MM/d/yyyy"
-          margin: 0 6
+          margin: 0 8
           padding: 0 8
           border_width: 0 0 2
           border_radius: 4
@@ -101,7 +108,7 @@ bar:
           file_path: 'G:\Projects\personal\configs\windows\glazewm\glazewm-hijri-date\hijri-date.txt'
           foreground: *text
           padding: 0 8
-          margin: 0 6
+          margin: 0 8
           padding: 0 8
           border_width: 0 0 2
           border_radius: 4
@@ -111,7 +118,7 @@ bar:
           padding: 0 8
           label: "{formatted_time}"
           time_formatting: "dddd hh:mm:ss tt"
-          margin: 0 6
+          margin: 0 8
           padding: 0 8
           border_width: 0 0 2
           border_radius: 4
@@ -157,7 +164,7 @@ window_rules:
     # Task Manager requires admin privileges to manage and should be ignored unless running
     # the WM as admin.
     - command: 'ignore'
-      match_process_name: '/Taskmgr|ScreenClippingHost|firefox|FortniteClient-Win64-Shipping|VALORANT|VALORANT-Win64-Shipping/'
+      match_process_name: '/Taskmgr|ScreenClippingHost|TickTick|firefox|FortniteClient-Win64-Shipping|VALORANT|VALORANT-Win64-Shipping/'
 
     # Launches system dialogs as floating by default (eg. File Explorer save/open dialog).
     - command: 'set floating'
