@@ -148,8 +148,9 @@ window_rules:
       match_class_name: '#32770'
 
     - commands: ["move to workspace 1", "focus workspace 1"]
-      match_process_name: "Code - Insiders|rider64"
+      match_process_name: "Code - Insiders|rider64|Termius Beta"
 
+    # todo: firefox should be 
     - commands: ["move to workspace 2", "focus workspace 2"]
       match_process_name: "/firefox|chrome|brave/"
 
@@ -161,6 +162,9 @@ window_rules:
 
     - commands: ["move to workspace 5", "focus workspace 5"]
       match_process_name: "explorer"
+
+    - commands: ["move to workspace 6", "focus workspace 6"]
+      match_process_name: "firefox"
     # Task Manager requires admin privileges to manage and should be ignored unless running
     # the WM as admin.
     - command: 'ignore'
