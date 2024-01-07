@@ -236,7 +236,7 @@ keybindings:
 
     # Move focused window in a given direction.
     - command: 'move left'
-      bindings: ['Alt+Shift+P', 'Alt+Shift+Left']
+      bindings: ['Alt+Shift+H', 'Alt+Shift+Left']
     - command: 'move right'
       bindings: ['Alt+Shift+L', 'Alt+Shift+Right']
     - command: 'move up'
@@ -305,7 +305,7 @@ keybindings:
     # I just use PM2 to run the script in background.
     # Normally, i would just create a task in task scheduler to run both scripts and glazewm on startup
     - command: 'exec pm2 start G:\Projects\personal\configs\windows\glazewm\glazewm-hijri-date\index.js --name glazewm-hijri-date'
-      binding: 'Alt+Shift+H'
+      binding: 'Alt+Shift+P'
 
     # Launch vscode insiders
     - command: "exec code-insiders"
