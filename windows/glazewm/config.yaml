@@ -169,7 +169,7 @@ window_rules:
       match_class_name: '#32770'
 
     - commands: ["move to workspace 1", "focus workspace 1"]
-      match_process_name: "Code - Insiders|rider64|Termius Beta"
+      match_process_name: "/Code - Insiders|rider64|Termius Beta/"
 
     # todo: firefox should be 
     - commands: ["move to workspace 2", "focus workspace 2"]
