@@ -61,7 +61,8 @@ bar:
           padding: 0 8
           border_width: 0 0 2
           border_radius: 4
-          border_color: *iris
+          border_color: *gold
+        # Does not work on Windows 10 build (17134.789)
         # - type: "music"
         #   label_not_playing: "Not Playing 🎵"
         #   label_paused: "{song_title} - {artist_name}"
@@ -89,21 +90,38 @@ bar:
           default_workspace_foreground: *overlay0
           default_workspace_border_color: transparent
     components_right:
-        # - type: 'clock'
-        #   # https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings
-        #   time_formatting: 'MM/d/yyyy dddd hh:mm tt'
-        #   foreground: '#c5c9c5'
-        #   background: '#181616'
-        - type: "clock"
+        - type: "memory"
+          label: "Mem: {percent_usage}%"
+          refresh_interval_ms: 1000
           foreground: *text
           padding: 0 8
-          label: "{formatted_time}"
-          time_formatting: "MM/d/yyyy"
           margin: 0 8
           padding: 0 8
           border_width: 0 0 2
           border_radius: 4
-          border_color: *iris
+          border_color: *gold
+        - type: "volume"
+          label_low: "🔊 {volume_level}%"
+          label_medium: "🔊 {volume_level}%"
+          label_high: "🔊 {volume_level}%"
+          label_mute: "🔊 {volume_level}%"
+          label: "🔊 {volume_level}%"
+          padding: 0 8
+          margin: 0 8
+          padding: 0 8
+          border_width: 0 0 2
+          border_radius: 4
+          border_color: *gold
+        - type: "clock"
+          foreground: *text
+          padding: 0 8
+          label: "{formatted_time}"
+          time_formatting: "MM/d/yyyy (ww)"
+          margin: 0 8
+          padding: 0 8
+          border_width: 0 0 2
+          border_radius: 4
+          border_color: *gold
         - type: "text file"
           file_path: 'G:\Projects\personal\configs\windows\glazewm\glazewm-hijri-date\hijri-date.txt'
           foreground: *text
@@ -112,7 +130,7 @@ bar:
           padding: 0 8
           border_width: 0 0 2
           border_radius: 4
-          border_color: *iris
+          border_color: *gold
         - type: "clock"
           foreground: *text
           padding: 0 8
@@ -122,7 +140,8 @@ bar:
           padding: 0 8
           border_width: 0 0 2
           border_radius: 4
-          border_color: *iris
+          border_color: *gold
+
 
 workspaces:
     - name: '1'
@@ -152,7 +171,7 @@ window_rules:
 
     # todo: firefox should be 
     - commands: ["move to workspace 2", "focus workspace 2"]
-      match_process_name: "/firefox|chrome|brave/"
+      match_process_name: "/firefox|chrome|brave|Obsidian/"
 
     - commands: ["move to workspace 3", "focus workspace 3", "move up"]
       match_process_name: "Discord|DiscordPTB"
