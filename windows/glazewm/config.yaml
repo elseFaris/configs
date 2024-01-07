@@ -25,10 +25,10 @@ general:
 
 gaps:
     # Gap between adjacent windows.
-    inner_gap: '8px'
+    inner_gap: '4px'
 
     # Gap between windows and the screen edge.
-    outer_gap: '8px'
+    outer_gap: '4px'
 
 # Highlight active/inactive windows with a colored border.
 # ** Exclusive to Windows 11 due to API limitations.
@@ -45,6 +45,8 @@ bar:
     height: '30px'
     position: 'top'
     opacity: 1.0
+    # Whether to show the bar above other windows
+    always_on_top: false
     background: '#20242cc4'
     foreground: '#ffffff'
     font_family: 'Segoe UI'
@@ -53,6 +55,8 @@ bar:
     offset_x: '0'
     offset_y: '0'
     border_radius: '0'
+    component_separator:
+      label: " | "
     components_left:
         - type: "window title"
           label: "{window_title}"
@@ -101,11 +105,11 @@ bar:
           border_radius: 4
           border_color: *gold
         - type: "volume"
-          label_low: "🔊 {volume_level}%"
-          label_medium: "🔊 {volume_level}%"
-          label_high: "🔊 {volume_level}%"
-          label_mute: "🔊 {volume_level}%"
-          label: "🔊 {volume_level}%"
+          label_low: "Vol: {volume_level}%"
+          label_medium: "Vol: {volume_level}%"
+          label_high: "Vol: {volume_level}%"
+          label_mute: "Vol: {volume_level}%"
+          label: "Vol: {volume_level}%"
           padding: 0 8
           margin: 0 8
           padding: 0 8
