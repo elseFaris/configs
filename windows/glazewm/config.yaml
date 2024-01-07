@@ -306,7 +306,10 @@ keybindings:
       binding: 'Alt+Shift+P'
 
     # Launch vscode insiders
-    - command: "exec code-insiders"
+    # - command: "exec code-insiders"
+    #   binding: "Alt+C"
+    # This fixes the issue where CMD is launched instead of vscode for some reason
+    - command: "exec 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Microsoft VS Code Insiders\\Code - Insiders.exe'"
       binding: "Alt+C"
 
     # Launch CMD terminal (alternatively `exec wt` or `exec %ProgramFiles%/Git/git-bash.exe`
