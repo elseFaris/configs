@@ -58,14 +58,29 @@ bar:
     component_separator:
       label: " | "
     components_left:
-        - type: "window title"
-          label: "{window_title}"
-          foreground: *text
-          margin: 0 8
-          padding: 0 8
-          border_width: 0 0 2
-          border_radius: 4
-          border_color: *gold
+    - type: "window title"
+      label: "{window_title}"
+      foreground: *text
+      margin: 0 8
+      padding: 0 8
+      border_width: 0 0 2
+      border_radius: 4
+      border_color: *gold
+    - type: "workspaces"
+      margin: 0 6
+      padding: 0 8
+      border_width: 0 0 2
+      border_radius: 4
+      border_color: *gold
+      focused_workspace_background: transparent
+      focused_workspace_foreground: *text
+      focused_workspace_border_color: transparent
+      displayed_workspace_background: transparent
+      displayed_workspace_foreground: *overlay0
+      displayed_workspace_border_color: transparent
+      default_workspace_background: transparent
+      default_workspace_foreground: *overlay0
+      default_workspace_border_color: transparent
         # Does not work on Windows 10 build (17134.789)
         # - type: "music"
         #   label_not_playing: "Not Playing 🎵"
@@ -74,25 +89,8 @@ bar:
         #   max_title_length: 20
         #   max_artist_length: 20
 
-    components_center:
-        - type: "workspaces"
-          margin: 0 6
-          padding: 0 8
-          border_width: 0 0 2
-          border_radius: 4
-          border_color: *gold
-
-          focused_workspace_background: transparent
-          focused_workspace_foreground: *text
-          focused_workspace_border_color: transparent
-
-          displayed_workspace_background: transparent
-          displayed_workspace_foreground: *overlay0
-          displayed_workspace_border_color: transparent
-
-          default_workspace_background: transparent
-          default_workspace_foreground: *overlay0
-          default_workspace_border_color: transparent
+    # components_center:
+    
     components_right:
         - type: "memory"
           label: "Mem: {percent_usage}%"
