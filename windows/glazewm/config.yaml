@@ -66,6 +66,15 @@ bar:
       border_width: 0 0 2
       border_radius: 4
       border_color: *gold
+        # Does not work on Windows 10 build (17134.789)
+        # - type: "music"
+        #   label_not_playing: "Not Playing 🎵"
+        #   label_paused: "{song_title} - {artist_name}"
+        #   label_playing: "{song_title} - {artist_name} ▶"
+        #   max_title_length: 20
+        #   max_artist_length: 20
+
+    components_center:
     - type: "workspaces"
       margin: 0 6
       padding: 0 8
@@ -81,16 +90,7 @@ bar:
       default_workspace_background: transparent
       default_workspace_foreground: *overlay0
       default_workspace_border_color: transparent
-        # Does not work on Windows 10 build (17134.789)
-        # - type: "music"
-        #   label_not_playing: "Not Playing 🎵"
-        #   label_paused: "{song_title} - {artist_name}"
-        #   label_playing: "{song_title} - {artist_name} ▶"
-        #   max_title_length: 20
-        #   max_artist_length: 20
 
-    # components_center:
-    
     components_right:
         - type: "memory"
           label: "Mem: {percent_usage}%"
@@ -182,7 +182,7 @@ window_rules:
       match_process_name: "DiscordPTB"
 
     - commands: ["move to workspace 4", "focus workspace 4"]
-      match_process_name: "Spotify"
+      match_process_name: "/Spotify|YouTube Music/"
 
     - commands: ["move to workspace 5", "focus workspace 5"]
       match_process_name: "explorer"
@@ -192,7 +192,7 @@ window_rules:
     # Task Manager requires admin privileges to manage and should be ignored unless running
     # the WM as admin.
     - command: 'ignore'
-      match_process_name: '/Taskmgr|ScreenClippingHost|TickTick|FortniteClient-Win64-Shipping|VALORANT|VALORANT-Win64-Shipping/'
+      match_process_name: '/Taskmgr|ScreenClippingHost|ShareX|TickTick|FortniteClient-Win64-Shipping|VALORANT|VALORANT-Win64-Shipping/'
 
     # Launches system dialogs as floating by default (eg. File Explorer save/open dialog).
     - command: 'set floating'
@@ -305,8 +305,9 @@ keybindings:
     # GlazeWM reads the file and displays it in the bar
     # I just use PM2 to run the script in background.
     # Normally, i would just create a task in task scheduler to run both scripts and glazewm on startup
-    - command: 'exec pm2 start G:\Projects\personal\configs\windows\glazewm\glazewm-hijri-date\index.js --name glazewm-hijri-date'
-      binding: 'Alt+Shift+P'
+    # Which I already did.
+    # - command: 'exec pm2 start G:\Projects\personal\configs\windows\glazewm\glazewm-hijri-date\index.js --name glazewm-hijri-date'
+    #   binding: 'Alt+Shift+P'
 
     # Launch vscode insiders
     # - command: "exec code-insiders"
