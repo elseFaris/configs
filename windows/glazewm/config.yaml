@@ -153,9 +153,9 @@ workspaces:
     - name: '3'
       display_name: "Chat"
     - name: '4'
-      display_name: "Music"
-    - name: '5'
       display_name: "Files"
+    - name: '5'
+      display_name: "Music"
     - name: '6'
       display_name: "Games"
     - name: '7'
@@ -168,27 +168,37 @@ window_rules:
     - command: 'ignore'
       match_class_name: '#32770'
 
+      # Code
     - commands: ["move to workspace 1", "focus workspace 1"]
       match_process_name: "/Code - Insiders|rider64|Termius Beta/"
 
-    # todo: firefox should be 
+      # Browsers
     - commands: ["move to workspace 2", "focus workspace 2"]
-      match_process_name: "/firefox|chrome|brave|Obsidian/"
+      match_process_name: "/chrome|brave|Obsidian/"
 
+      # Discord
     - commands: ["move to workspace 3", "focus workspace 3", "move up"]
       match_process_name: "Discord"
 
+      # Discord PTB
     - commands: ["move to workspace 3", "focus workspace 3", "move down", "set height 70%"]
       match_process_name: "DiscordPTB"
-
+      
+      # File Explorer
     - commands: ["move to workspace 4", "focus workspace 4"]
-      match_process_name: "/Spotify|YouTube Music/"
-
-    - commands: ["move to workspace 5", "focus workspace 5"]
       match_process_name: "explorer"
+    
+      # Spotify on left
+    - commands: ["move to workspace 5", "focus workspace 5", "move left", "set width 50%"]
+      match_process_name: "Spotify"
 
+      # Youtube on right
+    - commands: ["move to workspace 5", "focus workspace 5", "move right", "set width 50%"]
+      match_process_name: "YouTube Music"
+
+      # Games
     - commands: ["move to workspace 6", "focus workspace 6"]
-      match_process_name: "firefox"
+      match_process_name: "/firefox|steam/"
     # Task Manager requires admin privileges to manage and should be ignored unless running
     # the WM as admin.
     - command: 'ignore'
