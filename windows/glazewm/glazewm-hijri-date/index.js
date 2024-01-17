@@ -7,6 +7,7 @@ const hijriFormatter = new Intl.DateTimeFormat('ar-SA', {
     day: 'numeric',
     month: 'numeric',
     year: 'numeric',
+    timeZone: 'Asia/Riyadh',
 });
 const monthNameFormatter = new Intl.DateTimeFormat('ar-SA', { month: 'long' });
 
@@ -15,10 +16,8 @@ function getHijriDate(currentDate) {
     const day = parts.find((part) => part.type === 'day').value;
     const month = parts.find((part) => part.type === 'month').value;
     const year = parts.find((part) => part.type === 'year').value;
-
     const monthName = monthNameFormatter.format(currentDate, { month: 'long' });
     const hijriDateWithMonthName = `${day}/${monthName} (${month})/${year}`;
-
     return hijriDateWithMonthName;
 }
 
@@ -29,4 +28,4 @@ function updateHijriDateFile() {
 }
 
 updateHijriDateFile();
-setInterval(updateHijriDateFile, 1000); // Update every 10 seconds
+setInterval(updateHijriDateFile, 10000); // Update every 10 seconds
