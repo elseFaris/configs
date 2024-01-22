@@ -202,7 +202,7 @@ window_rules:
     # Task Manager requires admin privileges to manage and should be ignored unless running
     # the WM as admin.
     - command: 'ignore'
-      match_process_name: '/Taskmgr|ScreenClippingHost|ShareX|TickTick|FortniteClient-Win64-Shipping|VALORANT|VALORANT-Win64-Shipping/'
+      match_process_name: '/Taskmgr|ScreenClippingHost|ShareX|TickTick|script-fu|gimp-2.10|FortniteClient-Win64-Shipping|VALORANT|VALORANT-Win64-Shipping/'
 
     # Launches system dialogs as floating by default (eg. File Explorer save/open dialog).
     - command: 'set floating'
