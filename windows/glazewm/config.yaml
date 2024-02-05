@@ -153,9 +153,9 @@ workspaces:
     - name: '3'
       display_name: "Chat"
     - name: '4'
-      display_name: "Files"
-    - name: '5'
       display_name: "Music"
+    - name: '5'
+      display_name: "Files"
     - name: '6'
       display_name: "Games"
     - name: '7'
@@ -183,18 +183,18 @@ window_rules:
       # Discord PTB
     - commands: ["move to workspace 3", "focus workspace 3", "move down", "set height 70%"]
       match_process_name: "DiscordPTB"
-      
-      # File Explorer
-    - commands: ["move to workspace 4", "focus workspace 4"]
-      match_process_name: "explorer"
-    
+
       # Spotify on left
-    - commands: ["move to workspace 5", "focus workspace 5", "move left", "set width 50%"]
+    - commands: ["move to workspace 4", "focus workspace 4", "move left", "set width 50%"]
       match_process_name: "Spotify"
 
       # Youtube on right
-    - commands: ["move to workspace 5", "focus workspace 5", "move right", "set width 50%"]
+    - commands: ["move to workspace 4", "focus workspace 4", "move right", "set width 50%"]
       match_process_name: "YouTube Music"
+      
+      # File Explorer
+    - commands: ["move to workspace 5", "focus workspace 5"]
+      match_process_name: "explorer"
 
       # Games
     - commands: ["move to workspace 6", "focus workspace 6"]
