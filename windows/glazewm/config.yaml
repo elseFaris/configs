@@ -65,7 +65,7 @@ bar:
       padding: 0 8
       border_width: 0 0 2
       border_radius: 4
-      border_color: *gold
+      border_color: *iris
         # Does not work on Windows 10 build (17134.789)
         # - type: "music"
         #   label_not_playing: "Not Playing 🎵"
@@ -80,7 +80,7 @@ bar:
       padding: 0 8
       border_width: 0 0 2
       border_radius: 4
-      border_color: *gold
+      border_color: *iris
       focused_workspace_background: transparent
       focused_workspace_foreground: *text
       focused_workspace_border_color: transparent
@@ -101,7 +101,7 @@ bar:
           padding: 0 8
           border_width: 0 0 2
           border_radius: 4
-          border_color: *gold
+          border_color: *iris
         - type: "volume"
           label_low: "Vol: {volume_level}%"
           label_medium: "Vol: {volume_level}%"
@@ -113,7 +113,7 @@ bar:
           padding: 0 8
           border_width: 0 0 2
           border_radius: 4
-          border_color: *gold
+          border_color: *iris
         - type: "clock"
           foreground: *text
           padding: 0 8
@@ -123,7 +123,7 @@ bar:
           padding: 0 8
           border_width: 0 0 2
           border_radius: 4
-          border_color: *gold
+          border_color: *iris
         - type: "text file"
           file_path: 'G:\Projects\personal\configs\windows\glazewm\glazewm-hijri-date\hijri-date.txt'
           foreground: *text
@@ -132,7 +132,7 @@ bar:
           padding: 0 8
           border_width: 0 0 2
           border_radius: 4
-          border_color: *gold
+          border_color: *iris
         - type: "clock"
           foreground: *text
           padding: 0 8
@@ -142,7 +142,7 @@ bar:
           padding: 0 8
           border_width: 0 0 2
           border_radius: 4
-          border_color: *gold
+          border_color: *iris
 
 
 workspaces:
