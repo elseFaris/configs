@@ -36,7 +36,6 @@ focus_borders:
     active:
         enabled: true
         color: *rose
-
     inactive:
         enabled: true
         color: *pine
@@ -58,29 +57,20 @@ bar:
     component_separator:
       label: " | "
     components_left:
-    - type: "window title"
-      label: "{window_title}"
-      foreground: *text
-      margin: 0 8
-      padding: 0 8
-      border_width: 0 0 2
-      border_radius: 4
-      border_color: *iris
-        # Does not work on Windows 10 build (17134.789)
-        # - type: "music"
-        #   label_not_playing: "Not Playing 🎵"
-        #   label_paused: "{song_title} - {artist_name}"
-        #   label_playing: "{song_title} - {artist_name} ▶"
-        #   max_title_length: 20
-        #   max_artist_length: 20
-
-    components_center:
+    # - type: "window title"
+    #   label: "{window_title}"
+    #   foreground: *text
+    #   margin: 0 8
+    #   padding: 0 8
+    #   border_width: 0 0 2
+    #   border_radius: 4
+    #   border_color: *iris
     - type: "workspaces"
       margin: 0 6
       padding: 0 8
       border_width: 0 0 2
       border_radius: 4
-      border_color: *iris
+      border_color: *gold
       focused_workspace_background: transparent
       focused_workspace_foreground: *text
       focused_workspace_border_color: transparent
@@ -90,10 +80,46 @@ bar:
       default_workspace_background: transparent
       default_workspace_foreground: *overlay0
       default_workspace_border_color: transparent
-
+        # Does not work on Windows 10 build (17134.789)
+        # - type: "music"
+        #   label_not_playing: "Not Playing 🎵"
+        #   label_paused: "{song_title} - {artist_name}"
+        #   label_playing: "{song_title} - {artist_name} ▶"
+        #   max_title_length: 20
+        #   max_artist_length: 20
+    components_center:
+    - type: "clock"
+      foreground: *text
+      padding: 0 8
+      label: "{formatted_time}"
+      time_formatting: "dddd hh:mm:ss tt"
+      margin: 0 8
+      padding: 0 8
+      border_width: 0 0 2
+      border_radius: 4
+      border_color: *love
+    - type: "clock"
+      foreground: *text
+      padding: 0 8
+      label: "{formatted_time}"
+      time_formatting: "MM/d/yyyy (ww)"
+      margin: 0 8
+      padding: 0 8
+      border_width: 0 0 2
+      border_radius: 4
+      border_color: *love
+    - type: "text file"
+      file_path: 'G:\Projects\personal\configs\windows\glazewm\glazewm-hijri-date\hijri-date.txt'
+      foreground: *text
+      padding: 0 8
+      margin: 0 8
+      padding: 0 8
+      border_width: 0 0 2
+      border_radius: 4
+      border_color: *love
     components_right:
         - type: "memory"
-          label: "Mem: {percent_usage}%"
+          label: "MEM: {percent_usage}%"
           refresh_interval_ms: 1000
           foreground: *text
           padding: 0 8
@@ -101,7 +127,17 @@ bar:
           padding: 0 8
           border_width: 0 0 2
           border_radius: 4
-          border_color: *iris
+          border_color: *water
+        - type: "cpu"
+          label: "CPU: {percent_usage}%"
+          refresh_interval_ms: 1000
+          foreground: *text
+          padding: 0 8
+          margin: 0 8
+          padding: 0 8
+          border_width: 0 0 2
+          border_radius: 4
+          border_color: *water
         - type: "volume"
           label_low: "Vol: {volume_level}%"
           label_medium: "Vol: {volume_level}%"
@@ -113,36 +149,7 @@ bar:
           padding: 0 8
           border_width: 0 0 2
           border_radius: 4
-          border_color: *iris
-        - type: "clock"
-          foreground: *text
-          padding: 0 8
-          label: "{formatted_time}"
-          time_formatting: "MM/d/yyyy (ww)"
-          margin: 0 8
-          padding: 0 8
-          border_width: 0 0 2
-          border_radius: 4
-          border_color: *iris
-        - type: "text file"
-          file_path: 'G:\Projects\personal\configs\windows\glazewm\glazewm-hijri-date\hijri-date.txt'
-          foreground: *text
-          padding: 0 8
-          margin: 0 8
-          padding: 0 8
-          border_width: 0 0 2
-          border_radius: 4
-          border_color: *iris
-        - type: "clock"
-          foreground: *text
-          padding: 0 8
-          label: "{formatted_time}"
-          time_formatting: "dddd hh:mm:ss tt"
-          margin: 0 8
-          padding: 0 8
-          border_width: 0 0 2
-          border_radius: 4
-          border_color: *iris
+          border_color: *water
 
 
 workspaces:
@@ -402,6 +409,9 @@ love: &love '#eb6f92'
 gold: &gold '#f6c177'
 rose: &rose '#ebbcba'
 pine: &pine '#31748f'
+# generate more colors
+water: &water '#9ccfd8'
+leaf: &leaf '#9ccfd8'
 foam: &foam '#9ccfd8'
 iris: &iris '#c4a7e7'
 highlightlow: &highlightlow '#21202e'
