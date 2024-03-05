@@ -25,10 +25,10 @@ general:
 
 gaps:
     # Gap between adjacent windows.
-    inner_gap: '8px'
+    inner_gap: '10px'
 
     # Gap between windows and the screen edge.
-    outer_gap: '8px'
+    outer_gap: '10px'
 
 # Highlight active/inactive windows with a colored border.
 # ** Exclusive to Windows 11 due to API limitations.
@@ -173,7 +173,7 @@ bar:
 
 workspaces:
     - name: '1'
-      display_name: "Code"
+      display_name: "TickTick"
     - name: '2'
       display_name: "Study"
     - name: '3'
@@ -200,11 +200,11 @@ window_rules:
 
       # Browsers
     - commands: ["move to workspace 2", "focus workspace 2"]
-      match_process_name: "/chrome|brave|Obsidian/"
+      match_process_name: "/Obsidian/"
 
       # Discord
     - commands: ["move to workspace 3", "focus workspace 3", "move up"]
-      match_process_name: "Discord"
+      match_process_name: "/chrome|brave|Discord/"
 
       # Discord PTB
     - commands: ["move to workspace 3", "focus workspace 3", "move down", "set height 70%"]
@@ -222,7 +222,7 @@ window_rules:
     - commands: ["move to workspace 5", "focus workspace 5"]
       match_process_name: "explorer"
 
-      # Games
+      # Games/Break
     - commands: ["move to workspace 6", "focus workspace 6"]
       match_process_name: "/firefox|steam/"
     # Task Manager requires admin privileges to manage and should be ignored unless running
