@@ -70,7 +70,7 @@ bar:
       padding: 0 8
       border_width: 0 0 2
       border_radius: 4
-      border_color: *gold
+      border_color: *water
       focused_workspace_background: transparent
       focused_workspace_foreground: *text
       focused_workspace_border_color: transparent
@@ -97,17 +97,17 @@ bar:
       padding: 0 8
       border_width: 0 0 2
       border_radius: 4
-      border_color: *love
+      border_color: *water
     - type: "clock"
       foreground: *text
       padding: 0 8
       label: "{formatted_time}"
-      time_formatting: "MM/d/yyyy (ww)"
+      time_formatting: "MM/d/yyyy (Week ww)"
       margin: 0 8
       padding: 0 8
       border_width: 0 0 2
       border_radius: 4
-      border_color: *love
+      border_color: *water
     - type: "text file"
       file_path: 'G:\Projects\personal\configs\windows\glazewm\glazewm-hijri-date\hijri-date.txt'
       foreground: *text
@@ -116,8 +116,20 @@ bar:
       padding: 0 8
       border_width: 0 0 2
       border_radius: 4
-      border_color: *love
+      border_color: *water
     components_right:
+        - type: "volume"
+          label_low: "Vol: {volume_level}%"
+          label_medium: "Vol: {volume_level}%"
+          label_high: "Vol: {volume_level}%"
+          label_mute: "Vol: {volume_level}%"
+          label: "Vol: {volume_level}%"
+          padding: 0 8
+          margin: 0 8
+          padding: 0 8
+          border_width: 0 0 2
+          border_radius: 4
+          border_color: *water
         - type: "memory"
           label: "MEM: {percent_usage}%"
           refresh_interval_ms: 1000
@@ -132,18 +144,6 @@ bar:
           label: "CPU: {percent_usage}%"
           refresh_interval_ms: 1000
           foreground: *text
-          padding: 0 8
-          margin: 0 8
-          padding: 0 8
-          border_width: 0 0 2
-          border_radius: 4
-          border_color: *water
-        - type: "volume"
-          label_low: "Vol: {volume_level}%"
-          label_medium: "Vol: {volume_level}%"
-          label_high: "Vol: {volume_level}%"
-          label_mute: "Vol: {volume_level}%"
-          label: "Vol: {volume_level}%"
           padding: 0 8
           margin: 0 8
           padding: 0 8
@@ -209,7 +209,7 @@ window_rules:
     # Task Manager requires admin privileges to manage and should be ignored unless running
     # the WM as admin.
     - command: 'ignore'
-      match_process_name: '/Taskmgr|Telegram|ScreenClippingHost|ShareX|TickTick|script-fu|gimp-2.10|FortniteClient-Win64-Shipping|VALORANT|VALORANT-Win64-Shipping/'
+      match_process_name: '/Taskmgr|ScreenClippingHost|ShareX|TickTick|script-fu|gimp-2.10|FortniteClient-Win64-Shipping|VALORANT|VALORANT-Win64-Shipping/'
 
     # Launches system dialogs as floating by default (eg. File Explorer save/open dialog).
     - command: 'set floating'
