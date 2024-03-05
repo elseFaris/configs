@@ -40,6 +40,26 @@ focus_borders:
         enabled: true
         color: *pine
 
+#Rose pine palette
+base: &base '#191724'
+surface: &surface '#1f1d2e'
+overlay: &overlay '#26233a'
+muted: &muted '#6e6a86'
+subtle: &subtle '#908caa'
+text: &text '#e0def4'
+love: &love '#eb6f92'
+gold: &gold '#f6c177'
+rose: &rose '#ebbcba'
+pine: &pine '#31748f'
+water: &water '#9ccfd8'
+leaf: &leaf '#9ccfd8'
+foam: &foam '#9ccfd8'
+iris: &iris '#c4a7e7'
+highlightlow: &highlightlow '#21202e'
+highlightmed: &highlightmed '#403d52'
+highlighthigh: &highlighthigh '#524f67'
+overlay0: &overlay0 '#6c7086'
+
 bar:
     height: '30px'
     position: 'top'
@@ -57,20 +77,20 @@ bar:
     component_separator:
       label: " | "
     components_left:
-    # - type: "window title"
-    #   label: "{window_title}"
-    #   foreground: *text
-    #   margin: 0 8
-    #   padding: 0 8
-    #   border_width: 0 0 2
-    #   border_radius: 4
-    #   border_color: *iris
+    - type: "window title"
+      label: "{window_title}"
+      foreground: *text
+      margin: 0 8
+      padding: 0 8
+      border_width: 0 0 2
+      border_radius: 4
+      border_color: *text
     - type: "workspaces"
       margin: 0 6
       padding: 0 8
       border_width: 0 0 2
       border_radius: 4
-      border_color: *water
+      border_color: *gold
       focused_workspace_background: transparent
       focused_workspace_foreground: *text
       focused_workspace_border_color: transparent
@@ -97,7 +117,7 @@ bar:
       padding: 0 8
       border_width: 0 0 2
       border_radius: 4
-      border_color: *water
+      border_color: *text
     - type: "clock"
       foreground: *text
       padding: 0 8
@@ -107,7 +127,7 @@ bar:
       padding: 0 8
       border_width: 0 0 2
       border_radius: 4
-      border_color: *water
+      border_color: *text
     - type: "text file"
       file_path: 'G:\Projects\personal\configs\windows\glazewm\glazewm-hijri-date\hijri-date.txt'
       foreground: *text
@@ -116,7 +136,7 @@ bar:
       padding: 0 8
       border_width: 0 0 2
       border_radius: 4
-      border_color: *water
+      border_color: *text
     components_right:
         - type: "volume"
           label_low: "Vol: {volume_level}%"
@@ -129,7 +149,7 @@ bar:
           padding: 0 8
           border_width: 0 0 2
           border_radius: 4
-          border_color: *water
+          border_color: *text
         - type: "memory"
           label: "MEM: {percent_usage}%"
           refresh_interval_ms: 1000
@@ -139,7 +159,7 @@ bar:
           padding: 0 8
           border_width: 0 0 2
           border_radius: 4
-          border_color: *water
+          border_color: *text
         - type: "cpu"
           label: "CPU: {percent_usage}%"
           refresh_interval_ms: 1000
@@ -149,8 +169,7 @@ bar:
           padding: 0 8
           border_width: 0 0 2
           border_radius: 4
-          border_color: *water
-
+          border_color: *text
 
 workspaces:
     - name: '1'
@@ -398,23 +417,4 @@ keybindings:
     - commands: ['move to workspace 9', 'focus workspace 9']
       bindings: ['Alt+Shift+9']
 
-#Rose pine palette
-base: &base '#191724'
-surface: &surface '#1f1d2e'
-overlay: &overlay '#26233a'
-muted: &muted '#6e6a86'
-subtle: &subtle '#908caa'
-text: &text '#e0def4'
-love: &love '#eb6f92'
-gold: &gold '#f6c177'
-rose: &rose '#ebbcba'
-pine: &pine '#31748f'
-# generate more colors
-water: &water '#9ccfd8'
-leaf: &leaf '#9ccfd8'
-foam: &foam '#9ccfd8'
-iris: &iris '#c4a7e7'
-highlightlow: &highlightlow '#21202e'
-highlightmed: &highlightmed '#403d52'
-highlighthigh: &highlighthigh '#524f67'
-overlay0: &overlay0 '#6c7086'
+
