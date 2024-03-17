@@ -203,11 +203,11 @@ window_rules:
       match_process_name: "/Obsidian/"
 
       # Discord
-    - commands: ["move to workspace 3", "focus workspace 3", "move up"]
+    - commands: ["move to workspace 3", "focus workspace 3"]
       match_process_name: "/chrome|brave|Discord/"
 
       # Discord PTB
-    - commands: ["move to workspace 3", "focus workspace 3", "move down", "set height 70%"]
+    - commands: ["move to workspace 3", "focus workspace 3"]
       match_process_name: "DiscordPTB"
 
       # Spotify on left
