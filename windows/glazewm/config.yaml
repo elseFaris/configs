@@ -109,6 +109,8 @@ bar:
       border_radius: 4
       border_color: *text
     - type: "text file"
+      # This is a simple nodejs script that writes the hijri date to a file, then 
+      # GlazeWM reads the file and displays it to the bar.
       file_path: 'G:\Projects\personal\configs\windows\glazewm\glazewm-hijri-date\hijri-date.txt'
       foreground: *text
       padding: 0 8
