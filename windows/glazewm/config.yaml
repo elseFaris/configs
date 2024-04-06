@@ -155,7 +155,7 @@ workspaces:
     - name: '1'
       display_name: "Code"
     - name: '2'
-      display_name: "Browser/Notes"
+      display_name: "Browser"
     - name: '3'
       display_name: "Discord"
     - name: '4'
@@ -163,7 +163,7 @@ workspaces:
     - name: '5'
       display_name: "Files"
     - name: '6'
-      display_name: "Games/Break"
+      display_name: "Games"
     - name: '7'
     - name: '8'
     - name: '9'
