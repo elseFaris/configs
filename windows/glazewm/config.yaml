@@ -55,7 +55,7 @@ bar:
     offset_y: '0'
     border_radius: '0'
     component_separator:
-      label: " | "
+      label: " "
     components_left:
     - type: "window title"
       label: "{window_title}"
@@ -328,12 +328,12 @@ keybindings:
     #   binding: 'Alt+Shift+P'
 
     # Launch vscode insiders
-    # - command: "exec code-insiders"
-    #   binding: "Alt+C"
+    - command: "exec code"
+      binding: "Alt+C"
     # Adding the file location of vscode insiders fixes the issue where CMD is launched instead of vscode for some reason!?!
     # TODO: go back to normal vscode
-    - command: "exec 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Microsoft VS Code Insiders\\Code - Insiders.exe'"
-      binding: "Alt+C"
+    # - command: "exec 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Microsoft VS Code Insiders\\Code - Insiders.exe'"
+    #   binding: "Alt+C"
 
     # Launch CMD terminal (alternatively `exec wt` or `exec %ProgramFiles%/Git/git-bash.exe`
     # to start Windows Terminal and Git Bash respectively.
