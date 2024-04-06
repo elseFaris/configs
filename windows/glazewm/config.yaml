@@ -40,26 +40,6 @@ focus_borders:
         enabled: true
         color: *pine
 
-#Rose pine palette
-base: &base '#191724'
-surface: &surface '#1f1d2e'
-overlay: &overlay '#26233a'
-muted: &muted '#6e6a86'
-subtle: &subtle '#908caa'
-text: &text '#e0def4'
-love: &love '#eb6f92'
-gold: &gold '#f6c177'
-rose: &rose '#ebbcba'
-pine: &pine '#31748f'
-water: &water '#9ccfd8'
-leaf: &leaf '#9ccfd8'
-foam: &foam '#9ccfd8'
-iris: &iris '#c4a7e7'
-highlightlow: &highlightlow '#21202e'
-highlightmed: &highlightmed '#403d52'
-highlighthigh: &highlighthigh '#524f67'
-overlay0: &overlay0 '#6c7086'
-
 bar:
     height: '30px'
     position: 'top'
@@ -85,6 +65,14 @@ bar:
       border_width: 0 0 2
       border_radius: 4
       border_color: *text
+        # Does not work on Windows 10 build (17134.789)
+        # - type: "music"
+        #   label_not_playing: "Not Playing 🎵"
+        #   label_paused: "{song_title} - {artist_name}"
+        #   label_playing: "{song_title} - {artist_name} ▶"
+        #   max_title_length: 20
+        #   max_artist_length: 20
+    components_center:
     - type: "workspaces"
       margin: 0 6
       padding: 0 8
@@ -100,14 +88,6 @@ bar:
       default_workspace_background: transparent
       default_workspace_foreground: *overlay0
       default_workspace_border_color: transparent
-        # Does not work on Windows 10 build (17134.789)
-        # - type: "music"
-        #   label_not_playing: "Not Playing 🎵"
-        #   label_paused: "{song_title} - {artist_name}"
-        #   label_playing: "{song_title} - {artist_name} ▶"
-        #   max_title_length: 20
-        #   max_artist_length: 20
-    components_center:
     - type: "clock"
       foreground: *text
       padding: 0 8
@@ -173,7 +153,7 @@ bar:
 
 workspaces:
     - name: '1'
-      display_name: "TickTick"
+      display_name: "Code"
     - name: '2'
       display_name: "Study"
     - name: '3'
@@ -183,7 +163,7 @@ workspaces:
     - name: '5'
       display_name: "Files"
     - name: '6'
-      display_name: "Break"
+      display_name: "Games/Break"
     - name: '7'
     - name: '8'
     - name: '9'
@@ -194,21 +174,17 @@ window_rules:
     - command: 'ignore'
       match_class_name: '#32770'
 
-      # Code
+      # Coding
     - commands: ["move to workspace 1", "focus workspace 1"]
       match_process_name: "/Code - Insiders|rider64|Termius Beta/"
 
       # Browsers
     - commands: ["move to workspace 2", "focus workspace 2"]
-      match_process_name: "/Obsidian/"
+      match_process_name: "/Obsidian|brave|chrome/"
 
       # Discord
     - commands: ["move to workspace 3", "focus workspace 3"]
-      match_process_name: "/chrome|brave|Discord/"
-
-      # Discord PTB
-    - commands: ["move to workspace 3", "focus workspace 3"]
-      match_process_name: "DiscordPTB"
+      match_process_name: "/Discord|DiscordPTB/"
 
       # Spotify on left
     - commands: ["move to workspace 4", "focus workspace 4", "move left", "set width 50%"]
@@ -225,6 +201,7 @@ window_rules:
       # Games/Break
     - commands: ["move to workspace 6", "focus workspace 6"]
       match_process_name: "/firefox|steam/"
+
     # Task Manager requires admin privileges to manage and should be ignored unless running
     # the WM as admin.
     - command: 'ignore'
@@ -239,7 +216,8 @@ window_rules:
     - command: 'ignore'
       match_title: '[Pp]icture.in.[Pp]icture'
       match_class_name: 'Chrome_WidgetWin_1|MozillaDialogClass'
-    # Ignore ticktick window
+      
+    # Ignore ticktick white window
     - command: 'ignore'
       match_process_name: 'TickTick'
       match_class_name: 'MessageWindowClass.*'
@@ -340,19 +318,18 @@ keybindings:
     - command: "exec explorer"
       binding: "Alt+E"
 
-    # Launch hijri-date script which is a simple nodejs script 
-    # that writes the hijri date to a file
-    # GlazeWM reads the file and displays it in the bar
-    # I just use PM2 to run the script in background.
-    # Normally, i would just create a task in task scheduler to run both scripts and glazewm on startup
-    # Which I already did.
+    # Launch hijri-date script which is a simple nodejs script that writes the hijri date to a file
+    # then GlazeWM reads the file and displays it into the bar
+    # then I just use PM2 to run the script in background.
+    # Normally, I would just create a task in task scheduler to run both scripts and glazewm on windows startup
     # - command: 'exec pm2 start G:\Projects\personal\configs\windows\glazewm\glazewm-hijri-date\index.js --name glazewm-hijri-date'
     #   binding: 'Alt+Shift+P'
 
     # Launch vscode insiders
     # - command: "exec code-insiders"
     #   binding: "Alt+C"
-    # This fixes the issue where CMD is launched instead of vscode for some reason
+    # Adding the file location of vscode insiders fixes the issue where CMD is launched instead of vscode for some reason!?!
+    # TODO: go back to normal vscode
     - command: "exec 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Microsoft VS Code Insiders\\Code - Insiders.exe'"
       binding: "Alt+C"
 
@@ -421,4 +398,22 @@ keybindings:
     - commands: ['move to workspace 9', 'focus workspace 9']
       bindings: ['Alt+Shift+9']
 
-
+#Rose pine palette
+base: &base '#191724'
+surface: &surface '#1f1d2e'
+overlay: &overlay '#26233a'
+muted: &muted '#6e6a86'
+subtle: &subtle '#908caa'
+text: &text '#e0def4'
+love: &love '#eb6f92'
+gold: &gold '#f6c177'
+rose: &rose '#ebbcba'
+pine: &pine '#31748f'
+water: &water '#9ccfd8'
+leaf: &leaf '#9ccfd8'
+foam: &foam '#9ccfd8'
+iris: &iris '#c4a7e7'
+highlightlow: &highlightlow '#21202e'
+highlightmed: &highlightmed '#403d52'
+highlighthigh: &highlighthigh '#524f67'
+overlay0: &overlay0 '#6c7086'
