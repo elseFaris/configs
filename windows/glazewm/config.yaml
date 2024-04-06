@@ -65,7 +65,7 @@ bar:
       border_width: 0 0 2
       border_radius: 4
       border_color: *text
-        # Does not work on Windows 10 build (17134.789)
+        # Does not work on Windows 10 build (17134.789) :(
         # - type: "music"
         #   label_not_playing: "Not Playing 🎵"
         #   label_paused: "{song_title} - {artist_name}"
