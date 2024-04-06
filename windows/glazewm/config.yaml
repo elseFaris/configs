@@ -155,7 +155,7 @@ workspaces:
     - name: '1'
       display_name: "Code"
     - name: '2'
-      display_name: "Browser"
+      display_name: "Browser/Notes"
     - name: '3'
       display_name: "Discord"
     - name: '4'
