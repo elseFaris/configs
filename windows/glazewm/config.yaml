@@ -157,9 +157,9 @@ workspaces:
     - name: '1'
       display_name: "Code"
     - name: '2'
-      display_name: "Browser"
+      display_name: "Studying"
     - name: '3'
-      display_name: "Discord"
+      display_name: "Chat"
     - name: '4'
       display_name: "Music"
     - name: '5'
