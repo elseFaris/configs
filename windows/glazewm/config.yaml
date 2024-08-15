@@ -99,15 +99,19 @@ window_rules:
       - window_process: { equals: "TickTick" }
         window_class: { regex: "MessageWindowClass.*" }
 
+      # Ignore voice meter windows
+      - window_process: { equals: "voicemeeterpro" }
+        window_class: { regex: "Afx:400000:0" }
+
   # Move code editors to workspace 1
   - commands: ["move --workspace 1"]
     match:
       - window_class: { regex: "Code|Sublime Text|Atom|Notepad++" }
 
-  # Move browsers to workspace 2
+  # Move browsers/obsidian to workspace 2
   - commands: ["move --workspace 2"]
     match:
-      - window_process: { regex: "msedge|brave|chrome" }
+      - window_process: { regex: "msedge|brave|chrome|Obsidian" }
 
   # Move obs & TickTick to workspace 3
   - commands: ["move --workspace 3"]
