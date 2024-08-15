@@ -1,0 +1,306 @@
+global:
+  enable_devtools: true
+
+window/bar:
+  providers: ["self"]
+  width: "{{ self.args.MONITOR_WIDTH }}"
+  height: "80" #This one is a bit funky, I am using a 4k monitor with 150% zoom, this precisely fits that
+  position_x: "{{ self.args.MONITOR_X }}"
+  position_y: "{{ self.args.MONITOR_Y }}"
+  z_order: "always_on_bottom"
+  show_in_taskbar: false
+  resizable: false
+  global_styles: |
+
+    @import "https://www.nerdfonts.com/assets/css/webfont.css";
+    @import "https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css";
+
+    :root {
+      --rp-base: #191724;
+      --rp-base-alpha-bg: #191724dd;
+      --rp-surface: #1f1d2e;
+      --rp-overlay: #26233a;
+      --rp-muted: #6e6a86;
+      --rp-subtle: #908caa;
+      --rp-text: #e0def4;
+      --rp-love: #eb6f92;
+      --rp-gold: #f6c177;
+      --rp-rose: #ebbcba;
+      --rp-pine: #31748f;
+      --rp-foam: #9ccfd8;
+      --rp-iris: #c4a7e7;
+      --rp-highlight-low: #21202e;
+      --rp-highlight-med: #403d52;
+      --rp-highlight-high: #524f67;
+
+      --rp-moon-base: #232136;
+      --rp-moon-base-alpha-bg: #232136dd;
+      --rp-moon-surface: #2a273f;
+      --rp-moon-overlay: #393552;
+      --rp-moon-muted: #6e6a86;
+      --rp-moon-subtle: #908caa;
+      --rp-moon-text: #e0def4;
+      --rp-moon-love: #eb6f92;
+      --rp-moon-gold: #f6c177;
+      --rp-moon-rose: #ea9a97;
+      --rp-moon-pine: #3e8fb0;
+      --rp-moon-foam: #9ccfd8;
+      --rp-moon-iris: #c4a7e7;
+      --rp-moon-highlight-low: #2a283e;
+      --rp-moon-highlight-med: #44415a;
+      --rp-moon-highlight-high: #56526e;
+
+      --rp-dawn-base: #faf4ed;
+      --rp-dawn-base-alpha-bg: #faf4eddd
+      --rp-dawn-surface: #fffaf3;
+      --rp-dawn-overlay: #f2e9e1;
+      --rp-dawn-muted: #9893a5;
+      --rp-dawn-subtle: #797593;
+      --rp-dawn-text: #575279;
+      --rp-dawn-love: #b4637a;
+      --rp-dawn-gold: #ea9d34;
+      --rp-dawn-rose: #d7827e;
+      --rp-dawn-pine: #286983;
+      --rp-dawn-foam: #56949f;
+      --rp-dawn-iris: #907aa9;
+      --rp-dawn-highlight-low: #f4ede8;
+      --rp-dawn-highlight-med: #dfdad9;
+      --rp-dawn-highlight-high: #cecacd;
+
+      --text: var(--rp-text);
+      --bg: var(--rp-base-alpha-bg);
+      --border: var(--rp-base);
+      --icon: var(--rp-love);
+      --memory: var(--rp-iris);
+      --cpu: var(--rp-rose);
+      --cpu-high-usage: var(-high-use: --rp-love);
+      --battery-good: var(--rp-foam);
+      --battery-mid: var(rp-gold);
+      --battery-low: var(--rp-low);
+      --focused-process: var(--rp-text);
+      --focused: var(--rp-love);
+      --displayed: var(--rp-pine);
+      --workspace: var(--rp-text);
+      --now-playing: var(--rp-love);
+      --network: var(--rp-pine);
+      --weather: var(--rp-gold);
+    }
+
+  styles: |
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    height: 40px;
+    margin: 10px 20px;
+    color: var(--text);
+    font-family: "SF Mono", ui-monospace, monospace;
+    font-size: 16px;
+    font-weight: 600;
+
+  group/left:
+    styles: |
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 9999px;
+      height: 40px; 
+      width: fit-content;
+
+      .template {
+        margin: 4px;
+        display: flex;
+        align-items: center;
+
+        div {
+          display: flex;
+          align-items: center;
+        }
+      }
+
+      #memory, #cpu, #battery, #focused-process {
+        background: color-mix(in srgb, currentColor 10%, transparent);
+        border-radius: 9999px;
+        padding: 6px;
+        i {
+          font-size: 20px;
+          margin-right: 7px;
+        }
+      }
+
+    template/rose-pine:
+      styles: |
+
+        color: var(--icon);
+        background: color-mix(in srgb, currentColor 10%, transparent);
+        padding: 6px;
+        border-radius: 9999px
+      template: |
+
+        <i class="nf nf-md-flower_tulip"></i>
+
+    template/memory:
+      providers: ["memory"]
+      styles: |
+
+        color: var(--memory);
+      template: |
+
+        <i class="ti ti-rocket"></i>
+        {{ (memory.usedMemory / 1000000000).toFixed(2) }} GiB
+
+    template/cpu:
+      providers: ["cpu"]
+      styles: |
+
+        color: var(--cpu);
+
+        .high-usage {
+          color: var(--cou-high-use);
+
+          > i {
+            animation: flash 1s infinite;
+          }
+        }
+      template: |
+
+        <div class={{cpu.usage > 85 && 'high-usage'}}>
+          <i class="ti ti-cpu"></i>
+          <span>{{ Math.round(cpu.usage) }}%</span>
+        </div>
+
+    template/focused-process:
+      providers: ["glazewm"]
+      styles: |
+
+        color: var(--focused-process)
+      template: |
+
+        @for (child of glazewm.focusedWorkspace.children) {
+          @if (child?.hasFocus) {
+            <i class="ti ti-focus-2"></i>
+            {{ child.processName.toLowerCase() }}
+          }
+        }
+
+  group/center:
+    styles: |
+
+      justify-self: center;
+    template/glazewm_workspaces:
+      styles: |
+
+        height: 40px;
+        display: flex;
+        align-items: center;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 9999px;
+
+        .workspace {
+          background:transparent;
+          border: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 4px;
+          color: var(--workspace);
+
+          &.displayed {
+            color: var(--displayed);
+          }
+
+          &.focused,
+          &:hover {
+            color: var(--focused);
+          }
+        }
+
+        i {
+          padding: 6px;
+          background: color-mix(in srgb, currentColor 10%, transparent);
+          border-radius: 9999px;
+          font-size: 20px;
+        }
+
+      providers: ["glazewm"]
+      events:
+        - type: "click"
+          fn_path: "script.js#focusWorkspace"
+          selector: ".workspace"
+      template: |
+        @for (workspace of glazewm.currentWorkspaces) {
+          <button
+            class="workspace {{ workspace.hasFocus ? 'focused' : '' }} {{ workspace.isDisplayed ? 'displayed' : '' }}"
+            id="{{ workspace.name }}"
+          >
+            {{ workspace.displayName ?? workspace.name }}
+          </button>
+        }
+
+  group/right:
+    styles: |
+
+      justify-self: end;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 9999px;
+      overflow: hidden;
+      white-space: nowrap;
+
+      .template {
+        margin: 4px;
+        display: flex;
+        align-items: center;
+      }
+
+      #network, #weather, #now-playing {
+        background: color-mix(in srgb, currentColor 10%, transparent);
+        border-radius: 9999px;
+        padding: 6px;
+        overflow: hidden;
+        white-space: nowrap;
+        max-width: 20vw;
+
+        i {
+          margin-right: 7px;
+        }
+      }
+
+    template/now-playing:
+      providers: ["glazewm"]
+      styles: |
+
+        color: var(--now-playing)
+
+      template: |
+
+        @for (workspace of glazewm.allWorkspaces) {
+          @for (child of workspace.children) {
+            @if (child?.processName === "Spotify") {
+              <i class="ti ti-brand-spotify"></i>
+              {{ child.title }}
+            }
+          }
+        }
+
+    template/separator:
+      styles: |
+
+      template: |
+        <i class="nf nf-oct-dot_fill"></>
+
+    template/clock:
+      providers: ["date"]
+      styles: |
+
+        padding-right: 6px;
+      template: |
+
+        {{ date.toFormat(date.now, 't') }}
