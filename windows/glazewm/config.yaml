@@ -236,6 +236,14 @@ keybindings:
   - commands: ["shell-exec cmd"]
     bindings: ["alt+enter"]
 
+  # Launch brave browser.
+  - commands: ["shell-exec brave"]
+    bindings: ["alt+b"]
+
+  # Launch code editor.
+  - commands: ["shell-exec C:/Users/F/AppData/Local/Programs/Microsoft VS Code/Code.exe"]
+    bindings: ["alt+c"]
+
   # Focus the next/previous workspace defined in `workspaces` config.
   - commands: ["focus --next-workspace"]
     bindings: ["alt+s"]
