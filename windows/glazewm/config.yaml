@@ -4,7 +4,7 @@ general:
   startup_commands: ["shell-exec %userprofile%/.glzr/zebar/start.bat"]
 
   # Whether to automatically focus windows underneath the cursor.
-  focus_follows_cursor: false
+  focus_follows_cursor: true
 
   # Whether to switch back and forth between the previously focused
   # workspace when focusing the current workspace.
@@ -67,7 +67,7 @@ window_behavior:
       maximized: false
 
       # Whether to show fullscreen windows as always on top.
-      shown_on_top: true
+      shown_on_top: false
 
 workspaces:
   - name: "1"
@@ -233,7 +233,7 @@ keybindings:
   # Launch CMD terminal. Alternatively, use `shell-exec wt` or
   # `shell-exec %ProgramFiles%/Git/git-bash.exe` to start Windows
   # Terminal and Git Bash respectively.
-  - commands: ["shell-exec cmd"]
+  - commands: ["shell-exec wt"]
     bindings: ["alt+enter"]
 
   # Launch brave browser.

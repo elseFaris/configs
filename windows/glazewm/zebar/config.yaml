@@ -131,17 +131,6 @@ window/bar:
         }
       }
 
-    template/rose-pine:
-      styles: |
-
-        color: var(--icon);
-        background: color-mix(in srgb, currentColor 10%, transparent);
-        padding: 6px;
-        border-radius: 9999px
-      template: |
-
-        <i class="nf nf-md-flower_tulip"></i>
-
     template/memory:
       providers: ["memory"]
       styles: |
@@ -296,6 +285,7 @@ window/bar:
       template: |
         <i class="nf nf-oct-dot_fill"></>
 
+
     template/clock:
       providers: ["date"]
       styles: |
@@ -303,4 +293,4 @@ window/bar:
         padding-right: 6px;
       template: |
 
-        {{ date.toFormat(date.now, 't') }}
+        {{ date.toFormat(date.now, 'tt') }}
